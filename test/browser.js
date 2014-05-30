@@ -23,6 +23,8 @@ var App = React.createClass({
 });
 
 describe('react-frozenhead', function () {
+    beforeEach(function () { document.title = 'NONE'; });
+
     it('renders the initial title', function () {
         var app = App({title: 'INITIAL'}),
             html = React.renderComponentToString(app);
@@ -35,6 +37,15 @@ describe('react-frozenhead', function () {
         app.setProps({title: 'NEW'}, function () {
             var titleEl = container.querySelector('title');
             assert.equal(titleEl.text, 'INITIAL');
+            done();
+        });
+    });
+
+    it('changes the page title using document.title after mounting', function (done) {
+        var container = document.createElement('div');
+            app = React.renderComponent(App({title: 'INITIAL'}), container);
+        app.setProps({title: 'NEW'}, function () {
+            assert.equal(document.title, 'NEW');
             done();
         });
     });
