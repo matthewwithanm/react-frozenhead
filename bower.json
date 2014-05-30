@@ -1,0 +1,24 @@
+{
+  "name": "react-frozenhead",
+  "version": "0.0.0",
+  "authors": [
+    "Matthew Dapena-Tretter <m@tthewwithanm.com>"
+  ],
+  "description": "Make dealing with your page's head easy",
+  "main": "./standalone/react-frozenhead.js",
+  "keywords": [
+    "react-component",
+    "react",
+    "head",
+    "title"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/matthewwithanm/react-frozenhead",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
