@@ -1,13 +1,12 @@
 {
   "name": "react-frozenhead",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Make dealing with your page's head easy",
   "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "browserify": "~3.33.0",
     "browserify-shim": "~3.3.2",
