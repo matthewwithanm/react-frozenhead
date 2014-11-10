@@ -1,6 +1,6 @@
 {
   "name": "react-frozenhead",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Make dealing with your page's head easy",
   "main": "./lib/index.js",
   "directories": {
