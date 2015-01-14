@@ -13,9 +13,10 @@ var isTitleNode = function (node) {
     // Ideally we would just check `tagName`, but composite components don't
     // have that.
     return (
-        React.isValidComponent(node) &&
-        node.type.displayName === 'ReactFullPageComponenttitle' ||
-        node.type.displayName === 'title'
+        (React.isValidElement || React.isValidComponent)(node) &&
+            node.type === 'title' ||
+            (node.type && node.type.displayName === 'ReactFullPageComponenttitle') ||
+            (node.type && node.type.displayName === 'title')
     );
 };
 
@@ -54,7 +55,7 @@ var FrozenHead = React.createClass({
         it.forEach(this.props.children, function (child) {
             // Since we don't want React to diff the DOM, we can just render to
             // static HTML without markers.
-            html += React.renderComponentToStaticMarkup(child);
+            html += (React.renderToStaticMarkup || React.renderComponentToStaticMarkup)(child);
         });
         return head({dangerouslySetInnerHTML: {__html: html}});
     }
@@ -90,7 +91,7 @@ var walk = function (children, func, context) {
         if (func.call(context, child) === false) {
             return false;
         }
-        if (React.isValidComponent(child)) {
+        if ((React.isValidElement || React.isValidComponent)(child)) {
             return walk(child.props.children, func, context);
         }
     });
